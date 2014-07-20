@@ -1,0 +1,21 @@
+{
+  "postgres" : {
+    "user" : "nyan",
+    "password" : "cat"
+  },
+  "poptart": {
+    "token" : "e12281b7412a007631588a79d73aa402da5aeeeba93ae76e951c781f733b1a05"
+  },
+  "logentries" : {
+    "happiness_service" : "2203a941-2270-4562-a3cd-4442e447cc57",
+    "happiness" : "2203a941-2270-4562-a3cd-4442e447cc57"
+  },
+  "run_list": [
+    "recipe[docker]",
+    "recipe[chef-docker-happiness::happiness-data]",
+    "recipe[chef-docker-happiness::postgres]",
+    "recipe[chef-docker-happiness::happiness-service]",
+    "recipe[chef-docker-happiness::happiness]",
+    "recipe[chef-docker-happiness::nginx]"
+  ]
+}

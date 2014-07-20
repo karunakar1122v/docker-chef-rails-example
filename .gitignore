@@ -1,0 +1,4 @@
+Gemfile.lock
+/tmp/librarian/
+.vagrant/*
+.DS_Store
