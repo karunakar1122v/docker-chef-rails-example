@@ -1,6 +1,6 @@
 FROM ubuntu:14.04
 
-ADD https://raw.githubusercontent.com/austenito/docker-chef-rails-example/master/docker-files/rals-example/run.sh /config/rails-example/run.sh
+ADD https://raw.githubusercontent.com/austenito/docker-chef-rails-example/master/docker-files/rails-example/run.sh /config/rails-example/run.sh
 RUN chmod +x /config/rails-example/run.sh
 
 ADD https://raw.githubusercontent.com/austenito/docker-chef-rails-example/master/docker-files/nginx/run.sh /config/nginx/run.sh
