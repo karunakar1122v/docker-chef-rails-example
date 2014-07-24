@@ -1,7 +1,7 @@
 DEPENDENCIES
-  chef-docker-happiness
-    path: ../chef-docker-happiness
   docker
+  example-cookbook
+    path: cookbooks/example-cookbook
 
 GRAPH
   apt (2.4.0)
@@ -9,7 +9,6 @@ GRAPH
     apt (>= 0.0.0)
     modules (>= 0.0.0)
   build-essential (2.0.4)
-  chef-docker-happiness (0.1.0)
   chef_handler (1.1.6)
   device-mapper (0.1.0)
     apt (>= 0.0.0)
@@ -29,6 +28,7 @@ GRAPH
     sysctl (>= 0.0.0)
     yum-epel (>= 0.0.0)
   dpkg_autostart (0.1.10)
+  example-cookbook (0.1.0)
   git (4.0.2)
     build-essential (>= 0.0.0)
     dmg (>= 0.0.0)
