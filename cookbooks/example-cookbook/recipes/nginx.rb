@@ -20,8 +20,8 @@ docker_container 'nginx' do
   image 'austenito/nginx'
   container_name 'nginx'
   port "80:80"
-  link ['happiness:happiness', 'happiness-service:happiness_service']
-  volumes_from 'happiness-data'
+  link ['rails-example:rails_example']
+  volumes_from 'data-volume'
   detach true
   action :run
 end
