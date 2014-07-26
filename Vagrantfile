@@ -5,6 +5,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network "forwarded_port", guest: 80, host: 8080
   config.vm.network "forwarded_port", guest: 3001, host: 3001
   config.berkshelf.enabled = true
+  config.omnibus.chef_version = :latest
+
   VAGRANT_JSON = JSON.parse(Pathname(__FILE__).dirname.join('nodes', 'development.json').read)
 
   config.vm.provision :chef_solo do |chef|
