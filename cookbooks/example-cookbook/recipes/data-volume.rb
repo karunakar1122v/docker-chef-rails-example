@@ -7,7 +7,7 @@ include_recipe 'docker'
 
 docker_image 'ubuntu' do
   tag 'data-volume'
-  source 'https://raw.githubusercontent.com/austenito/docker-chef-rails-example/master/docker-files/data-volume/Dockerfile'
+  source 'https://raw.githubusercontent.com/austenito/docker-chef-rails-example/master/cookbooks/example-cookbook/data-volume/Dockerfile'
   action :build_if_missing
 end
 
