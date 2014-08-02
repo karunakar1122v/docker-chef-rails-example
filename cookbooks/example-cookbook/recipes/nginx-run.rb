@@ -1,15 +1,9 @@
 #
-# Cookbook Name:: chef-docker-happiness-service
-# Recipe::nginx
-#
-# Copyright 2014, YOUR_COMPANY_NAME
-#
-# All rights reserved - Do Not Redistribute
+# Cookbook Name:: chef-docker-rails-example
+# Recipe::nginx-run
 #
 
 include_recipe 'docker'
-
-docker_image 'austenito/nginx'
 
 if `sudo docker ps -a | grep nginx`.size > 0
   execute('stop container') { command "docker stop -t 60 nginx" }
@@ -17,11 +11,12 @@ if `sudo docker ps -a | grep nginx`.size > 0
 end
 
 docker_container 'nginx' do
-  image 'austenito/nginx'
+  image 'ubuntu:nginx'
   container_name 'nginx'
   port "80:80"
   link ['rails-example:rails_example']
   volumes_from 'data-volume'
   detach true
   action :run
+  command '/config/nginx/run.sh'
 end
