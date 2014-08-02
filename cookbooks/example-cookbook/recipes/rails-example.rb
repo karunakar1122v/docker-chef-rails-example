@@ -11,7 +11,7 @@ if `sudo docker ps -a | grep rails-example`.size > 0
 end
 
 docker_container 'rails-example' do
-  image 'ubuntu:ruby'
+  image 'ubuntu:ruby-2.1.2'
   container_name 'rails-example'
   detach true
   link ['postgres:db']
