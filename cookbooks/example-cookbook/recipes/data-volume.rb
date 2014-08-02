@@ -10,13 +10,7 @@ cookbook_file 'Dockerfile' do
   source 'data-volume/Dockerfile'
 end
 
-directory('/tmp/rails-example') { action :create }
-
-cookbook_file 'rails-example/run.sh' do
-  path '/tmp/rails-example/run.sh'
-  source 'rails-example/run.sh'
-end
-
+# nginx configuration files
 directory('/tmp/nginx') { action :create }
 
 cookbook_file 'nginx/run.sh' do
@@ -28,6 +22,32 @@ cookbook_file 'nginx/nginx.conf' do
   path '/tmp/nginx/nginx.conf'
   source 'nginx/nginx.conf'
 end
+
+# Postgres configuration files
+directory('/tmp/postgres') { action :create }
+cookbook_file 'postgres/run.sh' do
+  path '/tmp/postgres/run.sh'
+  source 'postgres/run.sh'
+end
+
+cookbook_file 'postgres/postgresql.conf' do
+  path '/tmp/postgres/postgresql.conf'
+  source 'postgres/postgresql.conf'
+end
+
+cookbook_file 'postgres/pg_hba.conf' do
+  path '/tmp/postgres/pg_hba.conf'
+  source 'postgres/pg_hba.conf'
+end
+
+# rails application configuration files
+directory('/tmp/rails-example') { action :create }
+
+cookbook_file 'rails-example/run.sh' do
+  path '/tmp/rails-example/run.sh'
+  source 'rails-example/run.sh'
+end
+
 
 docker_image 'ubuntu' do
   tag 'data-volume'

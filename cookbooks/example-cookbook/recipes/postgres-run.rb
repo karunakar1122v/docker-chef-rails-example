@@ -1,12 +1,10 @@
 #
 # Cookbook Name:: example-cookbook
-# Recipe:: postgres
+# Recipe:: postgres-run
 #
 
 
 include_recipe 'docker'
-
-docker_image 'austenito/postgres'
 
 if `sudo docker ps -a | grep postgres`.size > 0
   execute('stop container') { command "docker stop -t 60 postgres" }
@@ -14,7 +12,7 @@ if `sudo docker ps -a | grep postgres`.size > 0
 end
 
 docker_container 'postgres' do
-  image 'austenito/postgres'
+  image 'ubuntu:postgres'
   container_name 'postgres'
   port "5432:5432"
   detach true
@@ -23,4 +21,5 @@ docker_container 'postgres' do
       ]
   volumes_from 'data-volume'
   action :run
+  command '/config/postgres/run.sh'
 end

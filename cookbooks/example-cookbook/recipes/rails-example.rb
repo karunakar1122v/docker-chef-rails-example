@@ -5,15 +5,13 @@
 
 include_recipe 'docker'
 
-docker_image 'austenito/ruby-2.1.2'
-
 if `sudo docker ps -a | grep rails-example`.size > 0
   execute('stop container') { command "docker stop -t 60 rails-example" }
   execute('remove container') { command "docker rm -f rails-example" }
 end
 
 docker_container 'rails-example' do
-  image 'austenito/ruby-2.1.2'
+  image 'ubuntu:ruby'
   container_name 'rails-example'
   detach true
   link ['postgres:db']
