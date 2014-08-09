@@ -2,14 +2,12 @@
   "postgres" : {
     "user" : "nyan",
     "password" : "cat"
+    "conf": 
   },
   "run_list": [
     "recipe[docker]",
-    "recipe[docker-ruby::default]",
     "recipe[example-cookbook::data-volume]",
-    "recipe[docker-postgres::default]",
     "recipe[example-cookbook::postgres-run]",
-    "recipe[docker-nginx::default]",
     "recipe[example-cookbook::rails-example]",
     "recipe[example-cookbook::nginx-run]"
   ]
