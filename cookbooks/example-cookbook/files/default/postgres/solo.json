@@ -1,0 +1,12 @@
+{
+  "postgresql": {
+    "config": {
+      "listen_addresses": "*",
+      "data_directory": "/pgdata",
+      "port": 5432,
+    } 
+  },
+  "run_list": [
+    "recipe[postgresql::default]"
+  ]
+}
