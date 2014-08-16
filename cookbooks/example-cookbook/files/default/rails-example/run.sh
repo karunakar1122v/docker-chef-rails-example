@@ -3,13 +3,13 @@
 source /usr/local/share/chruby/chruby.sh
 
 mkdir /apps
+mkdir /log/rails-example
 cd /apps
 
 git clone https://github.com/austenito/rails-example.git
 cd rails-example
 export GEM_HOME=/gems/ruby/2.1.2
 mkdir pids
-mkdir log
 chruby 2.1.2
 bundle install --without development test
 
