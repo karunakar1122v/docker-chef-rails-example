@@ -17,18 +17,17 @@ docker_image 'austenito/postgres' do
   cmd_timeout 900
 end
 
-if `sudo docker ps -a | grep postgres`.size > 0
-  execute('stop container') { command "docker stop -t 60 postgres" }
+if `sudo docker ps -a | grep postgres`.size == 0
+  docker_container 'postgres' do
+    image 'austenito/postgres:9.3'
+    container_name 'postgres'
+    port "5432:5432"
+    detach true
+    env ["POSTGRES_USER=#{node['postgresql']['user']}",
+         "POSTGRES_PASSWORD=#{node['postgresql']['password']}"
+        ]
+    volumes_from 'data-volume'
+    action :run
+  end
 end
 
-docker_container 'postgres' do
-  image 'austenito/postgres:9.3'
-  container_name 'postgres'
-  port "5432:5432"
-  detach true
-  env ["POSTGRES_USER=#{node['postgresql']['user']}",
-       "POSTGRES_PASSWORD=#{node['postgresql']['password']}"
-      ]
-  volumes_from 'data-volume'
-  action :run
-end

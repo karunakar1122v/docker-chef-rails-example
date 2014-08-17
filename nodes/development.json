@@ -11,7 +11,7 @@
     "recipe[docker]",
     "recipe[example-cookbook::data-volume]",
     "recipe[example-cookbook::postgres]",
-    "recipe[example-cookbook::rails-example]"
-    // "recipe[example-cookbook::nginx-run]"
+    "recipe[example-cookbook::rails-example]",
+    "recipe[example-cookbook::nginx]"
   ]
 }
