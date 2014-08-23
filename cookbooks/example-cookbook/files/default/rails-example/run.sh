@@ -2,8 +2,6 @@
 
 source /usr/local/share/chruby/chruby.sh
 
-mkdir /apps
-mkdir /log/rails-example
 cd /apps
 
 git clone https://github.com/austenito/rails-example.git

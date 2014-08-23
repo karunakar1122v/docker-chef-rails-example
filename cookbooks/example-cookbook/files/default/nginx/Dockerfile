@@ -23,4 +23,6 @@ RUN chmod +x /tmp/nginx/run.sh
 # Expose ports
 EXPOSE 80
 
+VOLUME ["/var/log/nginx"]
+
 CMD /tmp/nginx/run.sh
