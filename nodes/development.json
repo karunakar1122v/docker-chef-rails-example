@@ -9,7 +9,7 @@
   "run_list": [
     "recipe[device-mapper]",
     "recipe[docker]",
-    "recipe[example-cookbook::data-volume]",
+    "recipe[example-cookbook::gem-cache]",
     "recipe[example-cookbook::postgres]",
     "recipe[example-cookbook::rails-example]",
     "recipe[example-cookbook::nginx]"

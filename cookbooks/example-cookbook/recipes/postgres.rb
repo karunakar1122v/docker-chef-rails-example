@@ -26,7 +26,7 @@ if `sudo docker ps -a | grep postgres`.size == 0
     env ["POSTGRES_USER=#{node['postgresql']['user']}",
          "POSTGRES_PASSWORD=#{node['postgresql']['password']}"
         ]
-    volumes_from 'data-volume'
+    volumes_from 'gem-cache'
     action :run
   end
 end

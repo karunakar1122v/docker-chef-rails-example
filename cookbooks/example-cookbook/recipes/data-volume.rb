@@ -1,24 +1,24 @@
 #
 # Cookbook Name:: example-cookbook
-# Recipe:: data-volume
+# Recipe:: gem-cache
 #
 
 include_recipe 'docker'
 
 cookbook_file 'Dockerfile' do
   path '/tmp/Dockerfile'
-  source 'data-volume/Dockerfile'
+  source 'gem-cache/Dockerfile'
 end
 
 docker_image 'ubuntu' do
-  tag 'data-volume'
+  tag 'gem-cache'
   source '/tmp'
   action :build_if_missing
 end
 
-docker_container 'data-volume' do
-  image 'ubuntu:data-volume'
-  container_name 'data-volume'
+docker_container 'gem-cache' do
+  image 'ubuntu:gem-cache'
+  container_name 'gem-cache'
   detach true
   action :run
 end

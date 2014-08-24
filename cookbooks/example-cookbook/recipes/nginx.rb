@@ -26,7 +26,7 @@ docker_container 'nginx' do
   container_name 'nginx'
   port "80:80"
   link ['rails-example:rails_example']
-  volumes_from 'data-volume'
+  volumes_from 'gem-cache'
   detach true
   action :run
 end

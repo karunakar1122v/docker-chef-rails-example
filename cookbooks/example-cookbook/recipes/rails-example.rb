@@ -25,7 +25,7 @@ docker_container 'rails-example' do
   container_name 'rails-example'
   detach true
   link ['postgres:db']
-  volumes_from 'data-volume'
+  volumes_from 'gem-cache'
   action :run
   port '3000:3000'
 end
